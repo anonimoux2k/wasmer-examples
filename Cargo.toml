@@ -1,0 +1,22 @@
+[package]
+edition = "2021"
+name    = "wasmer-examples"
+version = "0.1.0"
+
+[dependencies]
+anyhow                    = "1.0.86"
+wasmer                    = "4.3.6"
+wasmer-compiler           = { version = "=4.3.6", features = [ "compiler" ], optional = true }
+wasmer-compiler-cranelift = { version = "=4.3.6", optional = true }
+
+[features]
+# backend means that the `wasmer` crate will be compiled with the `wasmer-compiler` or the `jsc`.
+# That means: that is able to execute modules
+backend = []
+compiler = ["wasmer/compiler", "backend", "wasmer-compiler/translator"]
+cranelift = ["compiler", "wasmer-compiler-cranelift", "wasmer/cranelift"]
+
+[[example]]
+name = "hello-wasmer"
+path = "examples/hello_wasmer.rs"
+required-features = ["cranelift"]
