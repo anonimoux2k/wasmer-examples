@@ -6,32 +6,10 @@
 //! cargo run --example hello-wasmer --release --features "cranelift"
 //! ```
 
-use wasmer::{imports, wat2wasm, Function, Instance, Module, Store, TypedFunction};
+use wasmer::{imports, Function, Instance, Module, Store, TypedFunction};
 
 fn main() -> anyhow::Result<()> {
-    // First we create a simple Wasm program to use with Wasmer.
-    // We use the WebAssembly text format and use `wasmer::wat2wasm` to compile
-    // it into a WebAssembly binary.
-    //
-    // Most WebAssembly programs come from compiling source code in a high level
-    // language and will already be in the binary format.
-    let wasm_bytes = wat2wasm(
-        br#"
-(module
-  ;; First we define a type with no parameters and no results.
-  (type $no_args_no_rets_t (func (param) (result)))
-
-  ;; Then we declare that we want to import a function named "env" "hello_wasmer" with
-  ;; that type signature.
-  (import "env" "hello_wasmer" (func $hello_wasmer (type $no_args_no_rets_t)))
-
-  ;; Finally we create an entrypoint that calls our imported function.
-  (func $execute (type $no_args_no_rets_t)
-    (call $hello_wasmer))
-  ;; And mark it as an exported function named "execute".
-  (export "execute" (func $execute)))
-"#,
-    )?;
+    let wasm_bytes = include_bytes!("../wasm_files/hello_wasmer.wasm");
 
     // Create a Store.
     let mut store = Store::default();
