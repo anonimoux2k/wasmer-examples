@@ -20,3 +20,8 @@ cranelift = ["compiler", "wasmer-compiler-cranelift", "wasmer/cranelift"]
 name = "hello-wasmer"
 path = "examples/hello_wasmer.rs"
 required-features = ["cranelift"]
+
+[[example]]
+name = "instantiate-a-module"
+path = "examples/instantiate_a_module.rs"
+required-features = ["cranelift"]
