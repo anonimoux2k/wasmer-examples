@@ -25,3 +25,8 @@ required-features = ["cranelift"]
 name = "instantiate-a-module"
 path = "examples/instantiate_a_module.rs"
 required-features = ["cranelift"]
+
+[[example]]
+name = "interacting-with-memory"
+path = "examples/interacting_with_memory.rs"
+required-features = ["cranelift"]
