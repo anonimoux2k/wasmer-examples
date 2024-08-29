@@ -30,3 +30,8 @@ required-features = ["cranelift"]
 name = "interacting-with-memory"
 path = "examples/interacting_with_memory.rs"
 required-features = ["cranelift"]
+
+[[example]]
+name = "handling-errors"
+path = "examples/handling_errors.rs"
+required-features = ["cranelift"]
