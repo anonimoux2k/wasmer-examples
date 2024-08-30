@@ -35,3 +35,8 @@ required-features = ["cranelift"]
 name = "handling-errors"
 path = "examples/handling_errors.rs"
 required-features = ["cranelift"]
+
+[[example]]
+name = "exports-global"
+path = "examples/exports_global.rs"
+required-features = ["cranelift"]
