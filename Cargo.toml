@@ -45,3 +45,8 @@ required-features = ["cranelift"]
 name = "exports-function"
 path = "examples/exports_function.rs"
 required-features = ["cranelift"]
+
+[[example]]
+name = "exports-memory"
+path = "examples/exports_memory.rs"
+required-features = ["cranelift"]
