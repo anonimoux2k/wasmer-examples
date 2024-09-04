@@ -50,3 +50,8 @@ required-features = ["cranelift"]
 name = "exports-memory"
 path = "examples/exports_memory.rs"
 required-features = ["cranelift"]
+
+[[example]]
+name = "table"
+path = "examples/table.rs"
+required-features = ["cranelift"]
