@@ -8,50 +8,56 @@ anyhow                    = "1.0.86"
 wasmer                    = "4.3.6"
 wasmer-compiler           = { version = "=4.3.6", features = [ "compiler" ], optional = true }
 wasmer-compiler-cranelift = { version = "=4.3.6", optional = true }
+wasmer-middlewares         = "4.3.6"
 
 [features]
 # backend means that the `wasmer` crate will be compiled with the `wasmer-compiler` or the `jsc`.
 # That means: that is able to execute modules
-backend = []
-compiler = ["wasmer/compiler", "backend", "wasmer-compiler/translator"]
-cranelift = ["compiler", "wasmer-compiler-cranelift", "wasmer/cranelift"]
+backend   = [  ]
+compiler  = [ "backend", "wasmer-compiler/translator", "wasmer/compiler" ]
+cranelift = [ "compiler", "wasmer-compiler-cranelift", "wasmer/cranelift" ]
 
 [[example]]
-name = "hello-wasmer"
-path = "examples/hello_wasmer.rs"
-required-features = ["cranelift"]
+name              = "hello-wasmer"
+path              = "examples/hello_wasmer.rs"
+required-features = [ "cranelift" ]
 
 [[example]]
-name = "instantiate-a-module"
-path = "examples/instantiate_a_module.rs"
-required-features = ["cranelift"]
+name              = "instantiate-a-module"
+path              = "examples/instantiate_a_module.rs"
+required-features = [ "cranelift" ]
 
 [[example]]
-name = "interacting-with-memory"
-path = "examples/interacting_with_memory.rs"
-required-features = ["cranelift"]
+name              = "interacting-with-memory"
+path              = "examples/interacting_with_memory.rs"
+required-features = [ "cranelift" ]
 
 [[example]]
-name = "handling-errors"
-path = "examples/handling_errors.rs"
-required-features = ["cranelift"]
+name              = "handling-errors"
+path              = "examples/handling_errors.rs"
+required-features = [ "cranelift" ]
 
 [[example]]
-name = "exports-global"
-path = "examples/exports_global.rs"
-required-features = ["cranelift"]
+name              = "exports-global"
+path              = "examples/exports_global.rs"
+required-features = [ "cranelift" ]
 
 [[example]]
-name = "exports-function"
-path = "examples/exports_function.rs"
-required-features = ["cranelift"]
+name              = "exports-function"
+path              = "examples/exports_function.rs"
+required-features = [ "cranelift" ]
 
 [[example]]
-name = "exports-memory"
-path = "examples/exports_memory.rs"
-required-features = ["cranelift"]
+name              = "exports-memory"
+path              = "examples/exports_memory.rs"
+required-features = [ "cranelift" ]
 
 [[example]]
-name = "table"
-path = "examples/table.rs"
-required-features = ["cranelift"]
+name              = "table"
+path              = "examples/table.rs"
+required-features = [ "cranelift" ]
+
+[[example]]
+name              = "metering"
+path              = "examples/metering.rs"
+required-features = [ "cranelift" ]

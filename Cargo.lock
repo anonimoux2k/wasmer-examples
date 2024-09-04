@@ -1681,6 +1681,18 @@ dependencies = [
  "wasmer",
  "wasmer-compiler",
  "wasmer-compiler-cranelift",
+ "wasmer-middlewares",
+]
+
+[[package]]
+name = "wasmer-middlewares"
+version = "4.3.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c4a3c1a7474e5abd75fe6bde4d34fee77c22261b45f157bb769d4a297749463c"
+dependencies = [
+ "wasmer",
+ "wasmer-types",
+ "wasmer-vm",
 ]
 
 [[package]]
